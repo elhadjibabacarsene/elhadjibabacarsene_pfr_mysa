@@ -2,33 +2,74 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "administrateur" = "Administrateurs", "apprenant" = "Apprenants", "formateur" = "Formateurs",
+ *     "communityManager" = "CommunityManager"})
+ * @UniqueEntity ("email",message="Cet email existe déjà")
+ * @UniqueEntity ("telephone",message="Ce numéro de téléphone existe déjà")
+ * @ApiResource (
+ *     routePrefix="/admin",
+ *     normalizationContext={"groups"={"user:read"}},
+ *     attributes={
+ *          "security"="is_granted('ROLE_ADMIN')",
+ *          "security_message"="Vous n'avez les autorisations requises",
+ *          "pagination_enabled"=true, "pagination_items_per_page"=25
+ *      },
+ *     itemOperations={
+ *          "get","put"
+ *     },
+ *     collectionOperations={
+ *          "user_archivage"={
+ *               "method"="post",
+ *              "path"="/users/archivage",
+ *              "route_name" = "user_archivage"
+ *          },
+ *          "add_user"={
+ *               "method"="post",
+ *              "path"="/users",
+ *              "route_name" = "add_user",
+ *              "deserialize"=false
+ *          },
+ *          "get"
+ *     }
+ * )
+ * @ApiFilter(BooleanFilter::class, properties={"archivage"})
  */
 class User implements UserInterface
 {
+
+    const STATUS_ARCHIVAGE_DEFAULT = 0;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\Unique(message="Cet email existe déjà !")
      * @Assert\NotBlank(message="L'email est obligatoire")
      * @Assert\Email(message="L'email est incorrect")
+     * @Groups({"user:read"})
      */
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * Tableau des roles
      */
     private $roles = [];
 
@@ -52,7 +93,7 @@ class User implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=1)
      * @Assert\NotBlank(message="Vous devez préciser le genre")
      */
     private $genre;
@@ -60,14 +101,23 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank(message="Le prénom est obligatoire")
-     * @Assert\Unique(message="Ce numéro de téléphone existe déjà !")
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $archivage;
+    private $archivage = self::STATUS_ARCHIVAGE_DEFAULT;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
+     */
+    private $profil;
+
+    /**
+     * @ORM\Column(type="blob")
+     */
+    private $photo;
 
     public function getId(): ?int
     {
@@ -103,7 +153,7 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_'.strtoupper($this->profil->getLibelle());
 
         return array_unique($roles);
     }
@@ -206,4 +256,44 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getProfil(): ?Profil
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(?Profil $profil): self
+    {
+        $this->profil = $profil;
+
+        return $this;
+    }
+
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto($photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     *
+    public function upload()
+    {
+        if (null === $this->photo) {
+            return;
+        }
+
+        //$strm = fopen($this->file,'rb');
+        $strm = fopen($this->photo->getRealPath(),'rb');
+        $strm = fopen($req->getAvatar(""),'rb');
+        $this->setPhoto(stream_get_contents($strm));
+    }*/
 }
