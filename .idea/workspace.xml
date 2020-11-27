@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d09953a8-6cc0-45c0-86a6-318ffbc1f90d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/ProfilPersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/UserPersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/ExtractData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/PhotoBlob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Controller/ConferenceControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Func/ProfilsTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Func/UserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/FilterUnarchivedObjectExtension.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysa" beforeDir="false" afterPath="$PROJECT_DIR$/../mysa" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2583e09c-7313-4b0c-9257-c0a9899a1c13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2583e09c-7313-4b0c-9257-c0a9899a1c13.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mysa-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysa-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +221,7 @@
       <workItem from="1606168531139" duration="250000" />
       <workItem from="1606205699724" duration="18542000" />
       <workItem from="1606289985637" duration="16368000" />
-      <workItem from="1606335476877" duration="5180000" />
+      <workItem from="1606335476877" duration="12028000" />
     </task>
     <servers />
   </component>
@@ -269,10 +253,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="241" height="539" key="HiddenNamespacesPopup/0.0.1280.800@0.0.1280.800" timestamp="1606218958719" />
-    <state x="308" y="228" key="NewPhpClassDialog" timestamp="1606403609230">
+    <state x="308" y="228" key="NewPhpClassDialog" timestamp="1606467048940">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="308" y="228" key="NewPhpClassDialog/0.0.1280.800@0.0.1280.800" timestamp="1606403609230" />
+    <state x="308" y="228" key="NewPhpClassDialog/0.0.1280.800@0.0.1280.800" timestamp="1606467048940" />
     <state x="141" y="25" key="SettingsEditor" timestamp="1605864212788">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
