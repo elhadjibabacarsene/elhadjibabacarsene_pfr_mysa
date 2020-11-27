@@ -29,16 +29,17 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
  *          "pagination_enabled"=true, "pagination_items_per_page"=25
  *      },
  *     itemOperations={
- *          "get","put"
+ *          "get",
+ *          "update_user"={
+ *              "method"="put",
+ *              "path"="/users/{idUser}",
+ *              "route_name" = "update_user",
+ *              "deserialize"=false
+ *          }
  *     },
  *     collectionOperations={
- *          "user_archivage"={
- *               "method"="post",
- *              "path"="/users/archivage",
- *              "route_name" = "user_archivage"
- *          },
  *          "add_user"={
- *               "method"="post",
+ *              "method"="post",
  *              "path"="/users",
  *              "route_name" = "add_user",
  *              "deserialize"=false
@@ -51,7 +52,9 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 class User implements UserInterface
 {
 
-    const STATUS_ARCHIVAGE_DEFAULT = 0;
+    public function __construct(){
+        $this->archivage = false;
+    }
 
     /**
      * @ORM\Id
@@ -83,45 +86,58 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le nom est obligatoire")
+     * @Groups({"user:read"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Groups({"user:read"})
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=1)
      * @Assert\NotBlank(message="Vous devez préciser le genre")
+     * @Groups({"user:read"})
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Groups({"user:read"})
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $archivage = self::STATUS_ARCHIVAGE_DEFAULT;
+    private $archivage;
 
     /**
      * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
+     * @Groups({"user:read"})
      */
     private $profil;
 
     /**
      * @ORM\Column(type="blob")
+     * @Groups({"user:read"})
      */
     private $photo;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getEmail(): ?string
@@ -280,20 +296,4 @@ class User implements UserInterface
 
         return $this;
     }
-
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     *
-    public function upload()
-    {
-        if (null === $this->photo) {
-            return;
-        }
-
-        //$strm = fopen($this->file,'rb');
-        $strm = fopen($this->photo->getRealPath(),'rb');
-        $strm = fopen($req->getAvatar(""),'rb');
-        $this->setPhoto(stream_get_contents($strm));
-    }*/
 }

@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d09953a8-6cc0-45c0-86a6-318ffbc1f90d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/ProfilFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataPersister/ProfilPersister.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataPersister/UserPersister.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/ExtractData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/PhotoBlob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Controller/ConferenceControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Func/ProfilsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Func/UserTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysa" beforeDir="false" afterPath="$PROJECT_DIR$/../mysa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2583e09c-7313-4b0c-9257-c0a9899a1c13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2583e09c-7313-4b0c-9257-c0a9899a1c13.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mysa-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysa-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +134,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
       <path value="$PROJECT_DIR$/vendor/psr/link" />
@@ -145,6 +155,17 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/theofidry/alice-data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/hautelook/alice-bundle" />
+      <path value="$PROJECT_DIR$/vendor/bin/.phpunit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kMsLqupQVcxq7IdBwYbrXFLrDz" />
@@ -157,16 +178,42 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/Desktop" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/tests/Func" />
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/tests/Unit" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.ConferenceControllerTest.testIndex">
+    <configuration name="ConferenceControllerTest.testIndex" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Controller\ConferenceControllerTest" file="$PROJECT_DIR$/tests/Controller/ConferenceControllerTest.php" method="testIndex" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfilTest.testGetProfils" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Func\ProfilTest" file="$PROJECT_DIR$/tests/Func/UserTest.php" method="testGetProfils" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.ConferenceControllerTest.testIndex" />
+        <item itemvalue="PHPUnit.ProfilTest.testGetProfils" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -180,7 +227,17 @@
       <workItem from="1605526296610" duration="680000" />
       <workItem from="1605527094591" duration="570000" />
       <workItem from="1605527742373" duration="8277000" />
-      <workItem from="1605541762914" duration="55993000" />
+      <workItem from="1605541762914" duration="59333000" />
+      <workItem from="1605790371682" duration="12875000" />
+      <workItem from="1605865236949" duration="53000" />
+      <workItem from="1605865333673" duration="12749000" />
+      <workItem from="1605903608587" duration="184000" />
+      <workItem from="1605904449147" duration="8000" />
+      <workItem from="1606140654631" duration="3611000" />
+      <workItem from="1606168531139" duration="250000" />
+      <workItem from="1606205699724" duration="18542000" />
+      <workItem from="1606289985637" duration="16368000" />
+      <workItem from="1606335476877" duration="5180000" />
     </task>
     <servers />
   </component>
@@ -188,38 +245,50 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="252" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605530996856">
+    <state x="252" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606217921726">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="252" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1605530996856" />
+    <state x="252" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1606217921726" />
     <state x="368" y="197" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605535986209">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="368" y="197" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1605535986209" />
-    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605564272691">
+    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605830953380">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800@0.0.1280.800" timestamp="1605564272691" />
-    <state x="378" y="173" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605775017566">
+    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800@0.0.1280.800" timestamp="1605830953380" />
+    <state x="378" y="173" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606403871889">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="378" y="173" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800@0.0.1280.800" timestamp="1605775017566" />
+    <state x="378" y="173" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800@0.0.1280.800" timestamp="1606403871889" />
     <state x="379" y="316" key="ComposerInitDialogKey" timestamp="1605527393324">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="379" y="316" key="ComposerInitDialogKey/0.0.1280.800@0.0.1280.800" timestamp="1605527393324" />
-    <state x="310" y="114" key="NewPhpClassDialog" timestamp="1605601722915">
+    <state width="241" height="539" key="HiddenNamespacesPopup" timestamp="1606218958719">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="310" y="114" key="NewPhpClassDialog/0.0.1280.800@0.0.1280.800" timestamp="1605601722915" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1605696264293">
+    <state width="241" height="539" key="HiddenNamespacesPopup/0.0.1280.800@0.0.1280.800" timestamp="1606218958719" />
+    <state x="308" y="228" key="NewPhpClassDialog" timestamp="1606403609230">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1280.800@0.0.1280.800" timestamp="1605696264293" />
-    <state x="305" y="110" width="670" height="751" key="search.everywhere.popup" timestamp="1605700743130">
+    <state x="308" y="228" key="NewPhpClassDialog/0.0.1280.800@0.0.1280.800" timestamp="1606403609230" />
+    <state x="141" y="25" key="SettingsEditor" timestamp="1605864212788">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="110" width="670" height="751" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1605700743130" />
+    <state x="141" y="25" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1605864212788" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1606403825186">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.0.1280.800@0.0.1280.800" timestamp="1606403825186" />
+    <state x="0" y="17" width="596" height="783" key="find.popup" timestamp="1605862694113">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="0" y="17" width="596" height="783" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1605862694113" />
+    <state x="305" y="110" width="670" height="751" key="search.everywhere.popup" timestamp="1606305162928">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="110" width="670" height="751" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606305162927" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.25.1280.721@0.25.1280.721" timestamp="1605526119567" />
   </component>
 </project>

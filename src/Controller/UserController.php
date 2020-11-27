@@ -6,8 +6,11 @@ use ApiPlatform\Core\Validator\ValidatorInterface;
 use App\Entity\User;
 use App\Repository\ProfilRepository;
 use App\Repository\UserRepository;
+use App\Service\ExtractData;
+use App\Service\PhotoBlob;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,45 +50,39 @@ class UserController extends AbstractController
      * )
      */
     public function addUser(Request $request, ProfilRepository $profilRepository,
-                            DenormalizerInterface $denormalizer, ValidatorInterface $validator)
+                            DenormalizerInterface $denormalizer,
+                            ValidatorInterface $validator,
+                            PhotoBlob $photoBlob)
     {
         //On récupère la requête(sous-format tab)
         $requestContent = $request->request->all();
 
-        if(isset($requestContent) && !empty($requestContent)){
+        if (isset($requestContent) && !empty($requestContent)) {
 
-            if(isset($requestContent['nom']) && isset($requestContent['prenom']) && isset($requestContent['email'])
-                && isset($requestContent['password']) && isset($requestContent['genre']) && isset($requestContent['telephone'])
-                && isset($requestContent['idProfil'])){
+            if (isset($requestContent['nom']) && isset($requestContent['prenom']) && isset($requestContent['email'])
+                && isset($requestContent['genre']) && isset($requestContent['telephone'])
+                && isset($requestContent['idProfil'])) {
 
-                //Gestion de l'image
-                $requestContent['photo'] = $strm = fopen($request->files->get("photo"),'rb');
+                $requestContent['photo'] = $photoBlob->addPhoto($request,"photo");
 
                 //Gestion du profil
                 $profil = $profilRepository->find($requestContent['idProfil']);
-
-
                 //On élimine la clé idProfil et le password
                 unset($requestContent['idProfil']);
-
-
                 //On dénormalize la classe user puis on ajoute le profil et le password
-                $user = $denormalizer->denormalize($requestContent,User::class);
-
+                $user = $denormalizer->denormalize($requestContent, User::class);
                 //Gestion du password
                 $passwordHash = $this->encoder->encodePassword($user, "password");
-
                 $user->setProfil($profil);
                 $user->setPassword($passwordHash);
-
                 unset($requestContent['password']);
 
                 //On valide l'entité User
                 $error = $validator->validate($user);
-                if($error){
+                if ($error) {
                     //S'il a erreur
                     return $this->json($error, Response::HTTP_BAD_REQUEST);
-                }else{
+                } else {
                     $this->em->persist($user);
                     $this->em->flush();
 
@@ -97,37 +94,71 @@ class UserController extends AbstractController
         }
     }
 
-
-
     /**
      * @Route(
-     *     name="user_archivage",
-     *     path="/api/admin/users/archivage",
-     *     methods={"POST"},
+     *     name="update_user",
+     *     path="/api/admin/users/{id}",
+     *     methods={"PUT"},
      *     defaults={
-     *          "_controller" = "App\UserController::archivageUser",
+     *          "_controller" = "App\UserController::updateUser",
      *          "_api_resource_class" = User::class,
-     *          "_api_collection_operation_name" = "user_archivage"
+     *          "_api_item_operation_name" = "update_user"
      *     }
-     *)
+     * )
+     * @param Request $request
+     * @param ProfilRepository $profilRepository
+     * @param UserRepository $userRepository
+     * @param int $id
+     * @param ExtractData $extractData
+     * @return JsonResponse
      */
-    public function archivageUser(Request $request, UserRepository $userRepository)
+    public function updateUser(
+        Request $request,
+        ProfilRepository $profilRepository,
+        UserRepository $userRepository,
+        int $id,
+        ExtractData $extractData
+    )
     {
-        //On récupère la requête
-        $requestContent = json_decode($request->getContent(), true);
+        //$contentRequest = $request->getContent();
+        $contentRequest = $request->getContent();
 
-        if(isset($requestContent) && !empty($requestContent))
-        {
+        //le tableau qui contiendra les données extraites
+        $finalData = [];
 
-            $idUser = $requestContent['idUser'];
-            $user = $userRepository->find($idUser);
-            $user->setArchivage(true);
+        $finalData = $extractData->extractAllData($contentRequest);
+        //dd($finalData);
 
-            $this->em->flush();
 
-            return $this->json("success", Response::HTTP_OK);
+        //Récupérer le profil
+        $profil = $profilRepository->find((int)$finalData['idProfil']);
+        unset($finalData['idProfil']);
 
+        //Gestion de l'image
+        $file = fopen('php://memory', 'r+');
+        fwrite($file, $finalData['photo']);
+        rewind($file);
+        unset($finalData['photo']);
+
+        //On récupère l'utilisateur
+        $userDataPrevious = $userRepository->find($id);
+        //dd($userDataPrevious);
+        //On insère les données
+        foreach ($finalData as $name => $value) {
+            $method = 'set' . ucfirst($name);
+            if (method_exists($userDataPrevious, $method)) {
+                if ($method === 'setProfil')
+                {//On renseigne l'id du profil
+                    $value = $profilRepository->find((int)$value);
+                }
+                $userDataPrevious->$method($value);
+            }
         }
+
+        $this->em->persist($userDataPrevious);
+        $this->em->flush();
+
+        return $this->json("success", Response::HTTP_OK);
 
     }
 }
