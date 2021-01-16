@@ -47,5 +47,6 @@ security:
         - { path: ^/api/formateur, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/apprenant, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/apprenant, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/users, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

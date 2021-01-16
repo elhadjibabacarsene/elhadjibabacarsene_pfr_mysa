@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=AdministrateursRepository::class)
+ * @ApiResource()
  */
 class Administrateurs extends User
 {

@@ -7,3 +7,6 @@ api_platform:
             mime_types: ['multipart/form-data']
     swagger:
         versions: [3]
+#    formats:
+#        json:
+#            mime_types: ['application/json']

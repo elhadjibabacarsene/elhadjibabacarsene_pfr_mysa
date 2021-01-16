@@ -16,14 +16,7 @@ class FilterUnarchivedObjectExtension implements QueryCollectionExtensionInterfa
     public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
     {
         // TODO: Implement applyToCollectionForUser() method.
-        if(User::class === $resourceClass)
-        {
-            $queryBuilder->andWhere(sprintf("%s.archivage = 'false'",
-            $queryBuilder->getRootAliases()[0]
-            ));
-        }
-        // TODO: Implement applyToCollectionForProfil() method.
-        if(Profil::class === $resourceClass)
+        if(User::class === $resourceClass || Profil::class === $resourceClass)
         {
             $queryBuilder->andWhere(sprintf("%s.archivage = 'false'",
             $queryBuilder->getRootAliases()[0]
@@ -34,14 +27,7 @@ class FilterUnarchivedObjectExtension implements QueryCollectionExtensionInterfa
     public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, string $operationName = null, array $context = [])
     {
         // TODO: Implement applyToItemForUser() method.
-        if(User::class === $resourceClass)
-        {
-            $queryBuilder->andWhere(sprintf("%s.archivage = 'false'",
-                $queryBuilder->getRootAliases()[0]
-            ));
-        }
-        // TODO: Implement applyToItemForProfil() method.
-        if(Profil::class === $resourceClass)
+        if(User::class === $resourceClass || Profil::class === $resourceClass)
         {
             $queryBuilder->andWhere(sprintf("%s.archivage = 'false'",
                 $queryBuilder->getRootAliases()[0]

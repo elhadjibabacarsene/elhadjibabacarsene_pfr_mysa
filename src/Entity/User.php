@@ -26,7 +26,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
  *     attributes={
  *          "security"="is_granted('ROLE_ADMIN')",
  *          "security_message"="Vous n'avez les autorisations requises",
- *          "pagination_enabled"=true, "pagination_items_per_page"=25
+ *          "pagination_enabled"=true, "pagination_items_per_page"=5
  *      },
  *     itemOperations={
  *          "get",

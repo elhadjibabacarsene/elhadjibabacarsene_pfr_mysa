@@ -33,7 +33,7 @@ class ProfilsTest extends WebTestCase
         return $client;
     }
 
-    public function testGetProfils():void
+    public function testGetProfil():void
     {
         $client = $this->createAuthenticatedClient();
         $client->request('GET', 'admin/profils');
