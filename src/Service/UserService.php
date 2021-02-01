@@ -16,7 +16,6 @@ class UserService
     public function createUser(
         $requestContent, ProfilRepository $profilRepository,
         DenormalizerInterface $denormalizer,
-        ValidatorInterface $validator,
         PhotoBlob $photoBlob
     )
     {
@@ -32,17 +31,5 @@ class UserService
         $user->setProfil($profil);
         $user->setPassword($passwordHash);
         unset($requestContent['password']);
-
-        //On valide l'entité User
-        $error = $validator->validate($user);
-        if ($error) {
-            //S'il a erreur
-            return $this->json($error, Response::HTTP_BAD_REQUEST);
-        } else {
-            $this->em->persist($user);
-            $this->em->flush();
-
-            return $this->json("succes", Response::HTTP_OK);
-        }
     }
 }

@@ -31,6 +31,7 @@ class UserController extends AbstractController
 
     public function __construct(EntityManagerInterface $em, UserRepository $userRepository, UserPasswordEncoderInterface $encoder)
     {
+
         $this->em = $em;
         $this->userRepository = $userRepository;
         $this->encoder = $encoder;
@@ -76,6 +77,7 @@ class UserController extends AbstractController
                 $user->setProfil($profil);
                 $user->setPassword($passwordHash);
                 unset($requestContent['password']);
+
 
                 //On valide l'entité User
                 $error = $validator->validate($user);
@@ -138,7 +140,7 @@ class UserController extends AbstractController
         $file = fopen('php://memory', 'r+');
         fwrite($file, $finalData['photo']);
         rewind($file);
-        unset($finalData['photo']);
+        //unset($finalData['photo']);
 
         //On récupère l'utilisateur
         $userDataPrevious = $userRepository->find($id);

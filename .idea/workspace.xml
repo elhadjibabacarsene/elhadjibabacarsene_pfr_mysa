@@ -2,47 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d09953a8-6cc0-45c0-86a6-318ffbc1f90d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/CompetencesPersiter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Event/JwtCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/app/_style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/app/login/login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/app/login/login.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/back-vec1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/ebs-1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/girl-boy-1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/logo-sa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/sa-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/sonatel-academy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/web_developper.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-client-web/src/assets/images/webdev2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/config/config.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/app/interface/user.interface.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/app/models/profil.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/app/services/token-storage.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/app/services/user.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/assets/image/404.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/assets/image/logo-sa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/assets/image/sa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/assets/image/web_developper.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/database.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/generateData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysa-front/src/helpers/modules/AngularMaterialModules.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tp-angular/src/app/biens/bien.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysa" beforeDir="false" afterPath="$PROJECT_DIR$/../mysa" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2583e09c-7313-4b0c-9257-c0a9899a1c13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2583e09c-7313-4b0c-9257-c0a9899a1c13.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Administrateurs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Administrateurs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FilterUnarchivedObjectExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FilterUnarchivedObjectExtension.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Func/ProfilsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Func/ProfilsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +29,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -303,11 +269,32 @@
       <workItem from="1610558826844" duration="9000" />
       <workItem from="1610559718621" duration="26000" />
       <workItem from="1610633579046" duration="21000" />
-      <workItem from="1610633752052" duration="8774000" />
+      <workItem from="1610633752052" duration="9082000" />
+      <workItem from="1610969229635" duration="1952000" />
+      <workItem from="1610972058125" duration="276000" />
+      <workItem from="1610976169202" duration="31000" />
+      <workItem from="1610979827773" duration="2137000" />
+      <workItem from="1611054925810" duration="12466000" />
+      <workItem from="1611141707943" duration="4378000" />
+      <workItem from="1611258852649" duration="31000" />
+      <workItem from="1611587237492" duration="5622000" />
+      <workItem from="1611623524733" duration="1039000" />
     </task>
+    <task id="LOCAL-00001" summary="Feat: Gestion des profils utilisateurs">
+      <created>1610814087694</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1610814087694</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat: Gestion des profils utilisateurs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: Gestion des profils utilisateurs" />
   </component>
 </project>

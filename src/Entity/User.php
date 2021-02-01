@@ -102,31 +102,31 @@ class User implements UserInterface
      * @Assert\NotBlank(message="Vous devez préciser le genre")
      * @Groups({"user:read"})
      */
-    private $genre;
+    protected $genre;
 
     /**
      * @ORM\Column(type="string", length=20)
      * @Assert\NotBlank(message="Le prénom est obligatoire")
      * @Groups({"user:read"})
      */
-    private $telephone;
+    protected $telephone;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $archivage;
+    protected $archivage;
 
     /**
      * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
      * @Groups({"user:read"})
      */
-    private $profil;
+    protected $profil;
 
     /**
      * @ORM\Column(type="blob")
      * @Groups({"user:read"})
      */
-    private $photo;
+    protected $photo;
 
     public function getId(): ?int
     {
